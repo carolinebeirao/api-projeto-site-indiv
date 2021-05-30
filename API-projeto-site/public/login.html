@@ -1,66 +1,83 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto IoT - Sobre</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/contato-e-login.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <title>ENTRAR</title>
 </head>
 
 <body>
-    <!--header inicio-->
+
     <div class="header">
-        <div class="container">
-            <h1 class="titulo"><span class="highlight">Projeto</span> IoT Revolucionário</h1>
-            <div class="nav">
+        <div id="caixa">
+            <nav id="nav1">
+                <img src="./imagens/chapeubranco.svg" alt="" width="25px">
+                <span id="navleft">
+                    <a href="./index.html">
+                        <li>Inicio</li>
+                    </a>
+                    <a href="./cadastro.html">
+                        <li>Cadastrar</li>
+                    </a>
+                    <a href="./login.html">
+                        <li>Entrar</li>
+                    </a>
+                </span>
+            </nav>
+            <nav id="nav2">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="cadastro.html">Cadastro</a></li>
-                    <li><a href="" class="current">Login</a></li>
+                    <a href="">
+                        <img id="rsocial" src="./imagens/facebookroxo.svg" alt="">
+                    </a>
+                    <a href="">
+                        <img id="rsocial" src="./imagens/instagramroxo.svg" alt="">
+                    </a>
                 </ul>
-            </div>
+            </nav>
         </div>
     </div>
-    <!--header fim-->
-
-    <div class="pag-login">
+    <div class="contato">
         <div class="container">
-            <div class="box-login">
-                <h1>Login</h1>
-
-
-
+            <h1>Faça aqui seu login!</h1>
+            <div class="formulario">
                 <form id="form_login" method="post" onsubmit="return entrar()">
-                    Usuário:
-                    <input type="text" class="input-padrao" name="login">
-                    <br>
-                    Senha:
-                    <input type="password" class="input-padrao" name="senha">
-                    <br>
-                    <button id="btn_entrar" class="btn-green">Entrar</button>
-                </form>
 
-                <div class="extra">
-                    <div id="div_erro" class="msg_erro">
+                    <div class="inpt_style">
+                        <p>Usuario</p>
+                        <input type="text" class="input-padrao" name="login">
                     </div>
 
-                    <img src="aguarde-orange.gif" id="img_aguarde"  > <!--style="display: none;"-->
-                    
+                    <div class="inpt_style">
+                        <p>Senha</p>
+                        <input type="password" class="input-padrao" name="senha">
+                    </div>
+
+                    <div id="inpt_cadastrar">
+                        <p></p>
+                        <button id="btn_entrar" class="btn-green">Entrar</button>
+                    </div>
+            </div>
+
+            </form>
+
+            <div class="extra">
+                <div id="div_erro" class="msg_erro">
                 </div>
+                <div id="loading">
+                    <img src="./imagens/tenorcinza..gif" id="img_aguarde" style="width: 40px; display: none;">
+                </div>
+                <!--style="display: none;"-->
+
+            </div>
+            <div id="marca">
+                <img src="./imagens/chapeubranco.svg" alt="">
+                <p>MYSTUDY</p>
             </div>
         </div>
     </div>
-
-    <!--footer inicio-->
-    <div class="footer">
-        <div class="container">
-            <h4>Feito com carinho por um aluno BandTec. Copyright © 2021</h4>
-        </div>
-    </div>
-    <!--footer fim-->
 
 </body>
 
@@ -81,9 +98,8 @@
 
                     sessionStorage.login_usuario_meuapp = json.login;
                     sessionStorage.nome_usuario_meuapp = json.nome;
-                    sessionStorage.id_usuario_meuapp = json.id;
 
-                    window.location.href = 'tempo-real.html';
+                    window.location.href = 'usuario.html';
                 });
 
             } else {

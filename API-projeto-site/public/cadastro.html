@@ -1,109 +1,131 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto IoT - Sobre</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/contato-e-login.css">
+    <link rel="stylesheet" href="./css/cadastro.css">
+    <title>CADASTRAR</title>
 </head>
+
 <body>
-    <!--header inicio-->
+
     <div class="header">
-        <div class="container">
-            <h1 class="titulo"><span class="highlight">Projeto</span> IoT Revolucionário</h1>
-            <div class="nav">
+        <div id="caixa">
+            <nav id="nav1">
+                <img src="./imagens/chapeubranco.svg" alt="" width="25px">
+                <span id="navleft">
+                    <a href="./index.html">
+                        <li>Inicio</li>
+                    </a>
+                    <a href="./cadastro.html">
+                        <li>Cadastrar</li>
+                    </a>
+                    <a href="./login.html">
+                        <li>Entrar</li>
+                    </a>
+                </span>
+            </nav>
+            <nav id="nav2">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href=""class="current">Cadastro</a></li>
-                    <li><a href="login.html">Login</a></li>
+                    <a href="">
+                        <img id="rsocial" src="./imagens/facebookroxo.svg" alt="">
+                    </a>
+                    <a href="">
+                        <img id="rsocial" src="./imagens/instagramroxo.svg" alt="">
+                    </a>
                 </ul>
-            </div>
+            </nav>
         </div>
     </div>
-    <!--header fim-->
-
     <div class="contato">
         <div class="container">
             <h1>Faça aqui seu cadastro!</h1>
             <div class="formulario">
                 <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
-                    Nome completo
-                    <input type="text" name="nome" class="input-padrao" autofocus="autofocus" placeholder="Nome e sobrenome" required minlength="4">
-                    
-                    Login
-                    <input type="text" name="login" class="input-padrao" placeholder="seu nome de usuário" required minlength="4">
-                    
-                    Senha
-                    <input type="password" name="senha" class="input-padrao" placeholder="***************" required minlength="4">
-                    
-                        
-                    <input type="submit" id="btn_entrar" value="Cadastrar" class="btn-green">
+                    <div class="inpt_style">
+                        <p>Nome completo</p>
+                        <input type="text" name="nome" class="input-padrao" autofocus="autofocus"
+                            placeholder="Nome e sobrenome" required minlength="4">
+                    </div>
+
+                    <div class="inpt_style">
+                        <p>Login</p>
+                        <input type="text" name="login" class="input-padrao" placeholder="seu nome de usuário" required
+                            minlength="4">
+                    </div>
+
+                    <div class="inpt_style">
+                        <p>Senha</p>
+                        <input type="password" name="senha" class="input-padrao" placeholder="***************" required
+                            minlength="4">
+                    </div>
+
+                    <div id="inpt_cadastrar">
+                        <p></p>
+                        <input type="submit" id="btn_entrar" value="Cadastrar" class="btn-green">
+                    </div>
+
                 </form>
+                <div>
+                    <!-- <img src="./imagens/tenor.gif" id="img_aguarde"> -->
+                </div>
 
-                <img src="aguarde-orange.gif" id="img_aguarde" style="display: none; width:100px">
-    
-    <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;">
-        Erro no cadastro
-    </div>
+                <div id="div_erro" style="display: none;">
+                    <P>ERRO NO CADASTRO</P>
+                </div>
+            </div>
+        </div>
 
-            </div>
-            <div class="imagem-lateral">
-                <img src="img/side-img-contato_orange.jpg">
-            </div>
+        <div id="marca">
+            <img src="./imagens/chapeubranco.svg" alt="">
+            <p>MYSTUDY</p>
+        </div>
+        <div id="marca">
+            <img id="img_aguarde" src="./imagens/tenorcinza..gif" alt="" style="display: none; width:40px;">
         </div>
     </div>
 
-    
-
-     <!--footer inicio-->
-    <div class="footer">
-        <div class="container">
-            <h4>Feito com carinho por um aluno BandTec. Copyright © 2021</h4>
-        </div>
-    </div>
-    <!--footer fim-->
 </body>
+
 </html>
-
 <script>
+function cadastrar() {
+    aguardar();
+    var formulario = new URLSearchParams(new FormData(form_cadastro));
+    fetch("/usuarios/cadastrar", {
+        method: "POST",
+        body: formulario
+    }).then(function (response) {
+        
+        if (response.ok) {
 
-    function cadastrar() {
-        aguardar();
-        var formulario = new URLSearchParams(new FormData(form_cadastro));
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            body: formulario
-        }).then(function (response) {
-            
-            if (response.ok) {
+            window.location.href='login.html';
 
-                window.location.href='login.html';
+        } else {
 
-            } else {
+            console.log('Erro de cadastro!');
+            response.text().then(function (resposta) {
+                div_erro.innerHTML = resposta;
+            });
+            finalizar_aguardar();
+        }
+    });
 
-                console.log('Erro de cadastro!');
-                response.text().then(function (resposta) {
-                    div_erro.innerHTML = resposta;
-                });
-                finalizar_aguardar();
-            }
-        });
+    return false;
+}
 
-        return false;
-    }
+function aguardar() {
+    btn_entrar.disabled = true;
+    img_aguarde.style.display='block';
+    div_erro.style.display='none';
+}
 
-    function aguardar() {
-        btn_entrar.disabled = true;
-        img_aguarde.style.display='block';
-        div_erro.style.display='none';
-    }
-
-    function finalizar_aguardar() {
-        btn_entrar.disabled = false;
-        img_aguarde.style.display='none';
-        div_erro.style.display='block';
-    }
+function finalizar_aguardar() {
+    btn_entrar.disabled = false;
+    img_aguarde.style.display='none';
+    div_erro.style.display='block';
+}
 
 </script>

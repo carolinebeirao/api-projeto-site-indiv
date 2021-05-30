@@ -1,4 +1,4 @@
-  'use strict';
+'use strict';
 
 /* 
 lista e explicação dos Datatypes:

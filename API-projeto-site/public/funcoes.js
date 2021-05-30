@@ -1,6 +1,7 @@
 let login_usuario;
 let nome_usuario;
 
+
 function redirecionar_login() {
     window.location.href = 'login.html';
 }
@@ -12,7 +13,7 @@ function verificar_autenticacao() {
     if (login_usuario == undefined)  {
         redirecionar_login();
     } else {
-        b_usuario.innerHTML = nome_usuario;
+        b_usuario.innerHTML = login_usuario;
         validar_sessao();
     }
     

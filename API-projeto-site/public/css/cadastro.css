@@ -1,0 +1,185 @@
+body {
+    font: arial;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: #454545;
+    font-family: arial;
+}
+
+a {
+    text-decoration: none; 
+    text-transform: none;
+    color: inherit; 
+}
+
+.header {
+    background-color: #454545;
+    color: rgb(255, 255, 255);
+    height: 50px;
+}
+
+#caixa {
+    background-color: #454545;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding-top: 10px;
+    width: 85%;
+}
+
+nav  li {
+    /* background-color: #be0000; */
+    margin: 10px;
+    display: inline;
+    padding: 15px 4px 15px 4px;
+    font-family: arial;
+    margin-top:5px;   
+}
+
+nav ul {
+    margin: 0;
+}
+
+#nav1 {
+    /* background-color: rgb(82, 27, 27); */
+    margin-top: 0;
+    padding-top:10px ;
+    font-family: Livvic;
+}
+
+#nav1 a:hover {
+    background-color: #c5c5c559;
+    color:white ;
+    border-radius: 20px;
+    padding: 8px 8px 8px 8px ;
+}
+
+#nav1 img {
+    margin-right: 10px;
+    /* background-color: blueviolet; */
+}
+
+#navleft {
+    background-color: #454545;
+}
+
+#nav2 {
+    /* background-color: rgb(184, 57, 57); */
+    margin: 0 0 0 10px;
+    padding-top:5px ;
+    font-family: Arial;
+}
+
+#nav2 ul img {
+    margin-right: 10px; 
+    
+}
+
+#rsocial {
+    overflow: hidden;
+
+}
+
+#rsocial:hover {
+   border: 3px solid #9339F4;
+    border-radius: 25px;
+    -webkit-transform: scale(0.1);
+    transform: scale(1.0);
+   
+}
+
+
+/* APRESENTAÇÃO LOGIN */
+
+.contato {
+    background-image: url("../imagens/redecadastro.png") ;
+    background-size: 80% ;
+    padding: 15px 0px 10px 0px;
+    margin: 0 auto;
+    width: 36%;
+    margin-top: 30px;
+    height: 400px;
+
+}
+
+.container {
+    /* background-color: aqua; */
+    margin: 0 auto;
+    width: 100%;
+}
+
+.container h1 {
+    padding: 0px;
+    font-family: arial;
+    color: white;
+    margin-left: 60px;
+
+}
+
+.formulario {
+    text-align: lef;
+    /* background-color: yellowgreen; */
+    height: auto;
+    margin: 0 40px 0px 40px;
+    padding-left: 4%;
+    width: 80%;
+}
+
+.inpt_style input {
+    width: 90%;
+    height: 30px;
+    border-radius: 8px;
+    border: 5px solid rgba(214, 214, 214, 0.39);
+}
+
+.inpt_style p {
+    color: white;
+    font-family: arial ;
+    margin: 10px 0px 5px 0px;
+
+}
+
+#inpt_cadastrar input {
+    margin-top: 20px;
+    background-color: #9339F4;
+    width: 30%;
+    height: 40px;
+    border: 2px solid #9339F4;
+    border-radius:8px ;
+    color: white;
+}
+
+#inpt_cadastrar input:hover {
+    background-color: #8400ff;
+    border: 6px solid #8400ff;
+}
+
+#marca {
+    /* background-color: blue; */
+    width: 30%;
+    display: flex;
+    color: white;
+    font-family: 'arial black';
+    margin: 7px auto ;  
+}
+
+#marca img {
+    margin-right: 10px;   
+}
+
+#img_aguarde {
+    padding-left: 55px;
+}
+
+#espaco {
+    height: 75px;
+}
+
+#div_erro {
+    background-color: #ff042d;
+    color: white;
+    margin: 0 auto;
+    width: 48%;
+    text-align: center;
+}

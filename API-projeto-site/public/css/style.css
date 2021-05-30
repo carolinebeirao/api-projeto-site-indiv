@@ -1,243 +1,286 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 0;
-        /* SÓ COLOCAR QUANDO COLOCAR COR NO HEADER */
-    margin: 0;
-        /* SÓ COLOCAR QUANDO COLOCAR COR NO HEADER */
-        background-color: rgb(255, 95, 37);
-}
-
-.container { 
-    width: 80%;
-    margin: auto;
-}
-
-h1 {
     margin: 0;
     padding: 0;
+    border: 0;
+    background-color: #454545;
+    font-family: arial;
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none; 
+    text-transform: none;
+    color: inherit; 
 }
 
-/* CABEÇALHO */
+/* INICIO  NAVERGAÇÃO*/
 
 .header {
-    background-color: #232323;
-        /*overflow: auto; /* cuidado*/
-    height: 100px;
-        /*ATENÇÃO VOLTA A NAV AQUI SE SUMIR*/
-    border-bottom: 3px solid orangered;
+    background-color: #454545;
+    color: rgb(255, 255, 255);
+    height: 50px;
 }
 
-.header .container {
-    height: 80px;
+#caixa {
+    background-color: #454545;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding-top: 10px;
+    width: 85%;
 }
 
-.header .container .highlight {
-    color: orangered
+nav  li {
+    /* background-color: #be0000; */
+    margin: 10px;
+    display: inline;
+    padding: 15px 4px 15px 4px;
+    font-family: arial;
+    margin-top:5px;   
 }
 
-.header h1 {
+nav ul {
     margin: 0;
-    padding: 0;
-    float: left;
-        /*ATENÇÃO - VAI SUMIR A NAV*/
-    margin-top: 30px;
-    color: white;
 }
 
-.header ul {
-    list-style-type: none;
-        /*ATENÇÃO - NAO É NO NAV*/
-    float: right;
-        /*ATENÇÃO - VAI SUMIR A NAV*/
-    margin-top: 40px;
+#nav1 {
+    /* background-color: rgb(82, 27, 27); */
+    margin-top: 0;
+    padding-top:10px ;
+    font-family: Livvic;
 }
 
-.header li {
-    float: left;
-        /*ATENÇÃO ORDENE OS ITENS NA MESMA ORDEM QUE ESTÃO NO HTML*/
-    margin-left: 18px;
-        /* FIM*/
+#nav1 a:hover {
+    background-color: #0c0c0c6e;
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 8px 8px 8px 8px ;
 }
 
-.header a {
-    text-transform: uppercase;
-    color: white;
+#nav1 img {
+    margin-right: 10px;
+    /* background-color: blueviolet; */
 }
 
-.header a:hover {
-    font-weight: bold;
+#navleft {
+    background-color: #454545;
 }
 
-.header .current {
-    color: orangered;
-    font-weight: bold;
+#nav2 {
+    /* background-color: rgb(184, 57, 57); */
+    margin: 0 0 0 10px;
+    padding-top:5px ;
+    font-family: Arial;
 }
 
-/* JUMBOTRON 
-    aka BANNER */
-
-/*colocar tudo que está acima em header */
-
-.banner {
-    height: 400px;
-    width: 100%;
-    background: url(../img/banner-fundo.jpeg);
-    background-size: cover;
+#nav2 ul img {
+    margin-right: 10px; 
+    
 }
 
-.banner .container {
-    height: 400px;
-}
-
-.banner .texto {
-    color: gray;
-    text-align: center;
-    padding-top: 150px;
+#rsocial {
+    overflow: hidden;
 
 }
 
-.banner .titulo {
-    font-size: 48px;
-    color: orangered;
+#rsocial:hover {
+    border: 3px solid #9339F4;
+    border-radius: 25px;
+    -webkit-transform: scale(0.1);
+    transform: scale(1.0);
+   
 }
 
-/* NOVIDADES */
+/* FIM NAVERGAÇÃO*/
 
-.novidades {
-    background-color: #232323;
-    height: 90px;
-}
+/* INICIO APRESENTAÇÃO */
 
-.novidades .container {
-    padding: 30px 0;
-}
-
-
-.novidades button {
-    color: white;
-    background-color: orangered;
-    text-transform: uppercase;
-    width: 180px;
-    margin: auto;
-    display: block; /* Default de botão é inline-block. Com block, margin auto funciona*/
-    border: 0;
-    height: 38px;
-    padding: 0 20px;
-    cursor: pointer;
-}
-
-/* ICONES */
-
-.box {
-    overflow: auto;
-    background-color: #fff ;
-}
-
-.box .box-item {
-    float: left;
-    width: 33%;
-    text-align: center;
-    margin: 50px 0;
-}
-
-.box .box-item img {
-    height: 100px;
-}
-
-/* FOOTER */
-
-.footer {
-    background-color: rgb(255, 95, 37);
-    text-align: center;
-    height: 100px;
-}
-
-.footer h4 {
-    color: white;
-    font-weight: 100;
-    margin: 0;
+.apresentacao {
+    background-color: #454545;
     padding-top: 40px;
+    padding-bottom: 40px;
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    border-bottom: 12px solid #ffffff;
+    margin-bottom: 0px;
 }
 
-/* SOBRE - ASSUNTOS */
-
-.assuntos {
-    background-color: rgb(241, 241, 241);
-    overflow: auto;
-    padding-top: 30px;
-    text-align: center;
-    padding-bottom: 50px; /*aqui oh a diferença entre padding e margin*/
-    color: #3d3d3d
+#logomesa {
+    padding-left: 10%;
 }
 
-.assuntos .assunto {
-    border-bottom: 3px solid orangered;
-    background-color: white;
-    padding: 50px 15px;
-    float: left;
+#btcaixas  {
+    position: absolute;
+    background-color: #ffffff;
+    display: inline-block;
     width: 40%;
-    margin-left: 5%; 
+    height: 0px;
+    margin: 8% 0 0 50%;  
+    font-weight: 400;  
 }
 
-.assuntos h2 {
-    margin: 0;
-    padding: 0;
-    text-transform: uppercase;
+#cx1 {
+    /* background-color:rgb(18, 129, 92) ; */
+    height: 60px;
+    width:80%;  
+    
 }
 
-.assuntos p {
-    line-height: 1.5;
+#cx1 p {
+    /* background-color:aquamarine ; */
+    margin: 0 auto;
+    width: 100%;
+    margin-bottom: 30px;
+    margin-top: 15px;
+    font-family: arial;
+    font-size:25px;
+    color: #ffffffec;;
+    line-height: 30px;
+    /* font-weight: 600; */
+    letter-spacing: 1px;
+    /* text-transform: uppercase; */
+    text-shadow: 2px 1px 2px rgba(185, 172, 127, 0.822) ;
+}
+#btcaixas p {
+    text-align: left;
+    font-family: arial;
 }
 
-/* SOBRE - INTEGRANTES */
+#cx2 {
+    /* background-color:aquamarine ; */
+    margin-top: 50px;
+    width:80%; 
+}
 
-.nosso-time {
-    background-color: #232323;
+#cx2 p {
+    /* background-color:aquamarine ; */
+    margin: 0 auto;
+    width: 100%;
+    margin-top: -30px;
+    font-size: 25px;
+    color: #ffffffec;
+    line-height: 30px;
+    /* font-weight: 600; */
+    /* text-transform: uppercase; */
+    letter-spacing: 1px;
+    text-shadow: 2px 1px 2px rgba(185, 172, 127, 0.822) ;
+}
+
+#btcaixas div{
+    text-decoration: none;
+    margin-bottom: 2%;
+}
+
+#btcaixa {
+    background-color: rgba(0, 0, 255, 0);
+    margin: 0 auto;
+    width: 58%;   
+}
+
+
+/* FIM APRESENTAÇÃO */
+
+/* INICIO MARKETIN */
+
+#marketing {
+    /* background-color: #000000; */
+    height: 800px;
+}
+
+#centro-mark {
+    /* background-color: #E9E245; */
+    margin: 95px auto;
+    width: 90%;
+    height: 100%;
+}
+
+#mkt-bloco {
+    /* background-color: aqua; */
+    height: 30%;
+    margin: 20px;
+}
+
+#mkt-bloco h3{
     text-align: center;
-    overflow: auto;
-} 
-
-.nosso-time h2 {
-    margin: 0;
-    padding-top: 25px;
-    color: white;
+    font-size: 30px;
+    font-family: arial;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #9339F4;
     text-transform: uppercase;
 }
 
-.nosso-time .integrantes {
+#cont-makt {
+    display: flex;
+    margin: 50px 0 0 0;
+    color: azure;
+    font-size: 20px;
+    font-family: arial;
+}
+
+#mkt-text-1 {
+    margin:30px 0 0 180px;
+    width: 50%;
+    text-align: right;
+    color: azure;
+}
+
+#img-makt-1 img {
+    margin: 0 60px 0 60px;
+    width: 100px;
+}
+
+#mkt-text-2 {
+    margin: 0 180px 0 0;
+    width: 50%;
+    text-align: left;
+    font-family: arial;
+    color: azure;
+}
+
+#img-makt-2 img {
+    margin: 0 60px 0 390px;
+    width: 100px;
+}
+
+
+#mkt-text-3 {
+    margin-left: 180px;
+    width: 50%;
+    text-align: right;
+    font-family: arial;
+    color: azure;
+}
+
+#img-makt-3 img {
+    margin: 0 0 0 60px;
+    width: 100px;
+}
+
+#final {
+    background-color: #9339F4;
+    height: 40px;
+}
+
+#rodape {
+    background-color: #454545;
+    height: 200px;
+}
+
+#navrodape {
+    /* background-color: aqua; */
+    margin: auto;
+    width: 13%;
+}
+
+#navrodape img {
+    margin: 10px;
+}
+
+#copy {
+    /* background-color: aquamarine; */
+    margin: 0 auto;
+    width: 30%;
+    text-align: center;
     color: white;
-    overflow: auto;
-    margin-top: 30px;
-    padding-bottom: 35px;
-}
-
-
-.nosso-time .integrantes .integrante {
-    /*border: 3px solid cyan;*/
-    width: 18%;
-    float: left;
-    padding: 1%;
-    line-height: 1.5;
-}
-
-.nosso-time .integrante img {
-    height: 100px;
-    background-color: #ff8968;
-    border-radius: 50%;
-    padding: 10px;
-}
-
-/* ASSUNTO GRANDE */
-
-.assuntos .assunto-grande {
-    border-bottom: 3px solid orangered;
-    background-color: white;
-    padding: 50px 30px;
-    float: left;
-    /* width: 450px; */
-    margin-left: 55px; 
 }
