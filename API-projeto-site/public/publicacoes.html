@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fórum do meu Site</title>
+    <link rel="stylesheet" href="css/publicacoes.css">
+
+    <script type="text/javascript" src="funcoes.js"></script>
+
+    <style>
+        /* Classes CSS para exemplos de alertas */
+
+        .normal {
+            background-color: white;
+        }
+
+        .alerta-alto {
+            color: tomato;
+            
+        }
+
+        .alerta-baixo {
+            color: rgb(38, 0, 255);
+            
+        }
+    </style>
+</head>
+
+<body onload="obterPublicacoes()">
+    <!--header inicio-->
+
+    <div class="header">
+        <div class="container">
+            <h1 class="titulo"><span class="highlight">Projeto</span> IoT Revolucionário</h1>
+            <div class="usuario">
+                <h3>Olá, <b id="b_usuario"></b></h3>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><a href="tempo-real.html">Tempo Real</a></li>
+                    <li><a href="grafico-chartjs.html">Gráfico de histórico recente</a></li>
+                    <li><a href="#" class="highlight" onclick="logoff()">LOGOUT</a></li>
+                    <li><a href="pagina-estatica-chartsjs.html">
+                        <i class="show-on-hover">IR PARA PÁGINA GRÁFICO ESTÁTICO</i>
+                    </a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--header fim-->
+
+    <div class="dashboard">
+        <div class="container">
+            <div class="post">
+                <h2>Faça uma publicação!</h2>
+                <form id="form_publicar" method="post" onsubmit="return publicar()">
+                    Descrição:
+                    <br>
+                    <textarea id="" rows="3" cols="50" maxlength="100" class="textarea-padrao" name="descricao"></textarea>
+                    <br>
+                    <button id="btn_publicar" class="btn-green">Publicar</button>
+                </form>
+                <div class="extra">
+                    <div id="div_erro" class="msg_erro">
+                    </div>
+                    <img src="aguarde-orange.gif" id="img_aguarde"> 
+                </div>
+            </div>
+            <div class="feed">
+                <h1>Publicações</h1>
+                <div id="feed_container" class="container">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+
+<script>
+
+    function publicar() {
+        console.log("entrei!")
+        aguardar();
+        var formulario = new URLSearchParams(new FormData(form_publicar));
+        var idUsuario = sessionStorage.id_usuario_meuapp;
+        fetch(`/publicacoes/publicar/${idUsuario}`, {
+            method: "POST",
+            body: formulario
+        }).then(resposta => {
+
+            if (resposta.ok) {
+                obterPublicacoes();
+
+                finalizarAguardar();
+            } else {
+                console.log('Erro ao publicar!');
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+        });
+
+        return false;
+    }
+
+    function atualizarFeed(publicacoes) {
+        var feed = document.getElementById("feed_container");
+        feed.innerHTML = "";
+        for (let i = 0; i < publicacoes.length; i++) {
+            var publicacao = publicacoes[i];
+
+            var divPublicacao = document.createElement("div")
+            var divNome = document.createElement("div")
+            var divDescricao = document.createElement("div")
+
+            divNome.innerHTML = `${publicacao.nome}:`;
+            divDescricao.innerHTML = publicacao.descricao;
+
+            divPublicacao.className = "publicacao"
+            divNome.className = "nome";
+            divDescricao.className = "descricao";
+
+            divPublicacao.appendChild(divNome);
+            divPublicacao.appendChild(divDescricao);
+
+            feed.appendChild(divPublicacao);
+        }
+    }
+
+    function obterPublicacoes() {
+        aguardar();
+        fetch("/publicacoes")
+        .then(resposta => {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                   
+                    atualizarFeed(resposta);
+
+                    finalizarAguardar();
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+                finalizarAguardar("Nenhum resultado encontrado ou erro na API");
+            }
+        })
+        .catch(function (error) {
+            console.error(`Erro na obtenção das publicações: ${error.message}`);
+        });
+    }
+
+    function obterPublicacoesPorUsuario(idUsuario) {
+        fetch(`/publicacoes/${idUsuario}`)
+        .then(resposta => {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    // alert(JSON.stringify(resposta))
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+        .catch(function (error) {
+            console.error(`Erro na obtenção das publicações do usuário: ${error.message}`);
+        });
+    }
+
+    function aguardar() {
+        btn_publicar.disabled = true;
+        img_aguarde.style.visibility = 'visible';
+        div_erro.style.visibility = 'hidden';
+    }
+
+    function finalizarAguardar(resposta) {
+        btn_publicar.disabled = false;
+        img_aguarde.style.visibility = 'hidden';
+        if (resposta) {
+            div_erro.style.visibility = 'visible';
+            div_erro.innerHTML = resposta;
+        }
+    }
+
+    verificar_autenticacao();
+
+</script>
