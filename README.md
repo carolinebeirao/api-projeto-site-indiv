@@ -1,1 +1,1 @@
-# projeto-iot-revolucionario-2021-1
+# projeto-individual-2021-1
